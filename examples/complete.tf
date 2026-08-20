@@ -147,23 +147,19 @@ variable "environments" {
   type = map(object({
     resource_group_name = string
     virtual_network_name = string
-    location            = string
   }))
   default = {
     dev = {
       resource_group_name  = "rg-myapp-dev"
       virtual_network_name = "vnet-spoke-dev"
-      location             = "UK South"
     }
     test = {
       resource_group_name  = "rg-myapp-test"
       virtual_network_name = "vnet-spoke-test"
-      location             = "UK South"
     }
     prod = {
       resource_group_name  = "rg-myapp-prod"
       virtual_network_name = "vnet-spoke-prod"
-      location             = "UK South"
     }
   }
 }
