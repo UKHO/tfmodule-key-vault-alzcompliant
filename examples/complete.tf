@@ -74,7 +74,7 @@ module "key_vault_basic" {
   # CRITICAL: Pass provider configurations to the module
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription
   }
 
@@ -121,7 +121,7 @@ module "key_vault_conditional" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -170,7 +170,7 @@ module "key_vault_multi_env" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -223,7 +223,7 @@ module "key_vault_with_dependencies" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -255,7 +255,7 @@ module "key_vault_dual_endpoints" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary  # Secondary subscription required
   }
 
@@ -296,7 +296,7 @@ module "key_vault_custom_dns_links" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -350,7 +350,7 @@ module "key_vault_with_rbac" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 

@@ -75,7 +75,7 @@ Before using this module, ensure you have:
 This module requires provider configurations to be passed from the caller. The module expects:
 
 - **Default `azurerm` provider**: For the spoke subscription (where Key Vault resources are created)
-- **`azurerm.hub` provider**: For the hub subscription (where primary DNS zone resides)
+- **`azurerm.primary` provider**: For the hub subscription (where primary DNS zone resides)
 - **`azurerm.secondary` provider**: For the secondary subscription (optional, for secondary DNS zone)
 
 **Important**: Configure these providers in your root module before calling this module. Example:
@@ -120,7 +120,7 @@ module "key_vault" {
   # Provider configurations (REQUIRED)
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription (required even if not used)
   }
 
@@ -162,7 +162,7 @@ module "key_vault" {
   # Provider configurations (REQUIRED)
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription
   }
 
@@ -208,7 +208,7 @@ module "key_vault" {
   # Provider configurations (REQUIRED)
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription
   }
 
@@ -270,7 +270,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -295,7 +295,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -336,7 +336,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -368,7 +368,7 @@ module "key_vault" {
   # Provider configurations (REQUIRED)
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -423,7 +423,7 @@ This module expects the following providers to be configured by the caller:
 | Provider Alias | Purpose |
 |----------------|---------|
 | `azurerm` (default) | Spoke subscription - Where Key Vault and its resources are created |
-| `azurerm.hub` | Hub subscription - For primary private DNS zone lookups |
+| `azurerm.primary` | Hub subscription - For primary private DNS zone lookups |
 | `azurerm.secondary` | Secondary subscription - For secondary private DNS zone (optional but must be configured) |
 | `random` | Generates unique suffixes for resource naming |
 

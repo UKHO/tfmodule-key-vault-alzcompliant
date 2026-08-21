@@ -54,9 +54,9 @@ data "azurerm_subnet" "secondary_override" {
 
 # ===== PRIVATE DNS ZONES =====
 # Primary Private DNS zone - always from hub subscription (hub-spoke architecture pattern)
-# If your DNS zone is in the spoke subscription, configure azurerm.hub to point to spoke subscription
+# If your DNS zone is in the spoke subscription, configure azurerm.primary to point to spoke subscription
 data "azurerm_private_dns_zone" "keyvault_primary" {
-  provider            = azurerm.hub
+  provider            = azurerm.primary
   name                = var.private_dns_zone_name
   resource_group_name = var.private_dns_zone_resource_group_name != null ? var.private_dns_zone_resource_group_name : var.resource_group_name
 }

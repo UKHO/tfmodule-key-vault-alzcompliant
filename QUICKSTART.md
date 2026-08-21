@@ -28,7 +28,7 @@ module "key_vault" {
   # Pass providers (REQUIRED)
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -53,7 +53,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
   # ... rest of config
@@ -68,7 +68,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
   environment = each.key
@@ -88,7 +88,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
   # ... rest of config
@@ -124,7 +124,7 @@ module "key_vault" {
   
   providers = {              # ✅ Pass providers to module
     azurerm = azurerm
-    azurerm.hub = azurerm.hub
+    azurerm.primary = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 }

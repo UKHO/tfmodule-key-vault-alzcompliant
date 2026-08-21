@@ -46,7 +46,7 @@ configuration_aliases = [azurerm.secondary]
 
 **After:**
 ```terraform
-configuration_aliases = [azurerm.hub, azurerm.secondary]
+configuration_aliases = [azurerm.primary, azurerm.secondary]
 ```
 
 ### 3. Removed Subscription Variables
@@ -67,8 +67,8 @@ These are no longer needed because subscription IDs are now configured in the pr
 - Two separate data sources (`keyvault_hub` and `keyvault_spoke`)
 
 **After:**
-- Single data source using `azurerm.hub` provider
-- Simpler configuration: if DNS is in spoke, configure `azurerm.hub` to point to spoke subscription
+- Single data source using `azurerm.primary` provider
+- Simpler configuration: if DNS is in spoke, configure `azurerm.primary` to point to spoke subscription
 
 ### 5. Updated Documentation
 
@@ -121,7 +121,7 @@ module "key_vault" {
   # Pass providers to the module (REQUIRED)
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription
   }
 
@@ -180,7 +180,7 @@ module "key_vault" {
 | File | Changes |
 |------|---------|
 | `providers.tf` | **DELETED** - Internal provider configurations removed |
-| `versions.tf` | Updated to declare both `azurerm.hub` and `azurerm.secondary` aliases |
+| `versions.tf` | Updated to declare both `azurerm.primary` and `azurerm.secondary` aliases |
 | `variables.tf` | Removed `spoke_subscription_id`, `hub_subscription_id`, `secondary_subscription_id` |
 | `data.tf` | Simplified DNS zone lookups to always use hub provider |
 | `locals.tf` | Updated DNS zone reference to use single data source |
