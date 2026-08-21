@@ -13,10 +13,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "secondary_to_spoke" {
 
   provider            = azurerm.secondary
   name                = "link-${var.key_vault_name != null ? var.key_vault_name : "${var.environment}-kv"}-secondary-to-spoke"
-  resource_group_name = var.secondary_private_dns_zone_resource_group_name
-  private_dns_zone_name = var.secondary_private_dns_zone_name
-  virtual_network_id    = data.azurerm_virtual_network.secondary_spoke[0].id
-  registration_enabled  = false
+  private_dns_zone_id = data.azurerm_private_dns_zone.keyvault_secondary[0].id
+  virtual_network_id  = data.azurerm_virtual_network.secondary_spoke[0].id
+  registration_enabled = false
 
   tags = merge(
     var.tags,
@@ -40,10 +39,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "secondary_to_secondary
 
   provider            = azurerm.secondary
   name                = "link-${var.key_vault_name != null ? var.key_vault_name : "${var.environment}-kv"}-secondary-to-secondary"
-  resource_group_name = var.secondary_private_dns_zone_resource_group_name
-  private_dns_zone_name = var.secondary_private_dns_zone_name
-  virtual_network_id    = data.azurerm_virtual_network.secondary_override[0].id
-  registration_enabled  = false
+  private_dns_zone_id = data.azurerm_private_dns_zone.keyvault_secondary[0].id
+  virtual_network_id  = data.azurerm_virtual_network.secondary_override[0].id
+  registration_enabled = false
 
   tags = merge(
     var.tags,

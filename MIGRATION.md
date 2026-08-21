@@ -67,7 +67,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm           # Spoke subscription
-    azurerm.hub       = azurerm.hub       # Hub subscription
+    azurerm.primary       = azurerm.primary       # Hub subscription
     azurerm.secondary = azurerm.secondary # Secondary subscription
   }
 
@@ -165,7 +165,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -226,7 +226,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -251,7 +251,7 @@ module "key_vault" {
   
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -273,7 +273,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
   
@@ -295,7 +295,7 @@ module "key_vault" {
 
   providers = {
     azurerm           = azurerm
-    azurerm.hub       = azurerm.hub
+    azurerm.primary       = azurerm.primary
     azurerm.secondary = azurerm.secondary
   }
 
@@ -354,7 +354,7 @@ If Terraform wants to recreate resources, **STOP** and review the configuration 
 ```hcl
 providers = {
   azurerm           = azurerm
-  azurerm.hub       = azurerm.hub
+  azurerm.primary       = azurerm.primary
   azurerm.secondary = azurerm.secondary
 }
 ```
